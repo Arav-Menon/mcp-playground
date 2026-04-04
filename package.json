@@ -1,0 +1,21 @@
+{
+  "name": "mcp-testing",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun index.ts",
+    "server:inspect": "set DANGEROUSLY_OMIT_AUTH=true && bun x @modelcontextprotocol/inspector bun start"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.21.1",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  }
+}
