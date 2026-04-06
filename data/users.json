@@ -16,5 +16,23 @@
     "name": "Clementine Bauch",
     "username": "Samantha",
     "email": "Nathan@yesenia.net"
+  },
+  {
+    "id": 4,
+    "name": "Arav menon",
+    "username": "ArcMenon",
+    "email": "test@test.com"
+  },
+  {
+    "id": 5,
+    "name": "John Doe",
+    "username": "johndoe",
+    "email": "john@example.com"
+  },
+  {
+    "id": 6,
+    "name": "sanskriti",
+    "username": "sansu",
+    "email": "sanskriti@sansu.com"
   }
 ]
