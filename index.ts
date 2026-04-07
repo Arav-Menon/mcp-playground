@@ -1,8 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import fs from "node:fs/promises";
-
+import { createUser, createTask, updateTask } from "./fn";
 const server = new McpServer({
   name: "test",
   version: "1.0.0",
@@ -21,7 +20,7 @@ server.tool(
 
 server.tool(
   "create-user",
-  "Create a new user in a db",
+  "Create a new user in file",
   {
     name: z.string(),
     username: z.string(),
@@ -49,22 +48,100 @@ server.tool(
   },
 );
 
-async function createUser(user: {
-  name: string;
-  username: string;
-  email: string;
-}) {
-  const users = await import("./data/users.json", {
-    with: { type: "json" },
-  }).then((m) => m.default);
+server.tool(
+  "Create-task",
+  "Create a new task in db",
+  {
+    title: z.string(),
+    description: z.string(),
+  },
+  {
+    title: "Create an User",
+    readOnlyHint: false,
+    destructiveHint: false,
+    idempotentHint: false,
+    openWorldHint: true,
+  },
+  //@ts-ignore
+  async (params) => {
+    try {
+      const id = await createTask(params);
+      return {
+        content: [{ type: "text", text: `Task created with ID: ${id}` }],
+      };
+    } catch (err) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "failed to save task in db",
+            error: String(err),
+          },
+        ],
+      };
+    }
+  },
+);
 
-  const id = users.length + 1;
+server.tool(
+  "update-task",
+  "update task in db",
+  {
+    title: z.string(),
+    description: z.string(),
+  },
+  {
+    title: "Create an User",
+    readOnlyHint: false,
+    destructiveHint: false,
+    idempotentHint: false,
+    openWorldHint: true,
+  },
+  //@ts-ignore
+  async (params) => {
+    try {
+      const id = await updateTask(params);
+      return {
+        content: [{ type: "text", text: `Task updated with ID: ${id}` }],
+      };
+    } catch (err) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "failed to save updated task in db",
+            error: String(err),
+          },
+        ],
+      };
+    }
+  },
+);
 
-  users.push({ id, ...user });
+server.resource(
+  "users",
+  "users://all",
+  {
+    description: "Get all users data from the database",
+    title: "Users",
+    mimeType: "application/json",
+  },
+  async (uri) => {
+    const users = await import("./data/users.json", {
+      with: { type: "json" },
+    }).then((m) => m.default);
 
-  await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2));
-  return id;
-}
+    return {
+      contents: [
+        {
+          uri: uri.href,
+          text: JSON.stringify(users),
+          mimeType: "application/json",
+        },
+      ],
+    };
+  },
+);
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
