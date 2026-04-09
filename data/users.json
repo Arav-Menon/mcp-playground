@@ -40,5 +40,85 @@
     "name": "ansh",
     "username": "Lizard",
     "email": "ansh@ansh.com"
+  },
+  {
+    "id": 8,
+    "name": "Bob Wilson",
+    "username": "bobwilson181",
+    "email": "bobwilson181@example.com",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "+1-555-3620413"
+  },
+  {
+    "id": 9,
+    "name": "Bob Wilson",
+    "username": "bobwilson428",
+    "email": "bobwilson428@example.com",
+    "address": "456 Oak Ave, Somewhere, USA",
+    "phone": "+1-555-7191877"
+  },
+  {
+    "id": 10,
+    "name": "Alice Johnson",
+    "username": "alicejohnson744",
+    "email": "alicejohnson744@example.com",
+    "address": "456 Oak Ave, Somewhere, USA",
+    "phone": "+1-555-4802866"
+  },
+  {
+    "id": 11,
+    "name": "Bob Wilson",
+    "username": "bobwilson774",
+    "email": "bobwilson774@example.com",
+    "address": "456 Oak Ave, Somewhere, USA",
+    "phone": "+1-555-3885424"
+  },
+  {
+    "id": 12,
+    "name": "Jane Smith",
+    "username": "janesmith989",
+    "email": "janesmith989@example.com",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "+1-555-4414538"
+  },
+  {
+    "id": 13,
+    "name": "John Doe",
+    "username": "johndoe919",
+    "email": "johndoe919@example.com",
+    "address": "789 Pine Rd, Elsewhere, USA",
+    "phone": "+1-555-8768291"
+  },
+  {
+    "id": 14,
+    "name": "Jane Smith",
+    "username": "janesmith128",
+    "email": "janesmith128@example.com",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "+1-555-8468275"
+  },
+  {
+    "id": 15,
+    "name": "Jane Smith",
+    "username": "janesmith163",
+    "email": "janesmith163@example.com",
+    "address": "789 Pine Rd, Elsewhere, USA",
+    "phone": "+1-555-1712071"
+  },
+  {
+    "id": 16,
+    "name": "Jane Smith",
+    "username": "janesmith224",
+    "email": "janesmith224@example.com",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "+1-555-5935185"
+  },
+  {
+    "id": 17,
+    "name": "Bob Wilson",
+    "username": "bobwilson156",
+    "email": "bobwilson156@example.com",
+    "address": "123 Main St, Anytown, USA",
+    "phone": "+1-555-3534968"
   }
 ]
