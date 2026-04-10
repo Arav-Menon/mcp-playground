@@ -228,6 +228,7 @@ server.tool(
             },
           ],
           maxTokens: 1024,
+          temperature : 0.7
         },
       },
       CreateMessageResultSchema
