@@ -120,37 +120,5 @@
     "email": "bobwilson156@example.com",
     "address": "123 Main St, Anytown, USA",
     "phone": "+1-555-3534968"
-  },
-  {
-    "id": 18,
-    "name": "Sachin tendulkar",
-    "username": "Sachin",
-    "email": "sachin@gmail.com"
-  },
-  {
-    "id": 19,
-    "name": "MSD",
-    "username": "MSD",
-    "email": "[EMAIL_ADDRESS]",
-    "address": "742 Evergreen Terrace, Springfield, IL 62704, United States",
-    "phone": "+1 (555) 012-8493"
-  },
-  {
-    "id": 20,
-    "name": "Kyle Thompson",
-    "username": "kyle_the_thompson",
-    "email": "kyle.thompson@example.com"
-  },
-  {
-    "id": 21,
-    "name": "Risab_pant",
-    "username": "risabpant_123",
-    "email": "risab.pant@example.com"
-  },
-  {
-    "id": 22,
-    "name": "Alex Johnson",
-    "username": "alexj",
-    "email": "alex.johnson@example.com"
   }
 ]
