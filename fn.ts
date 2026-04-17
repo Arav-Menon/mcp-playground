@@ -7,9 +7,8 @@ export async function createUser(user: {
   username: string;
   email: string;
 }) {
-  const users = await import("./data/users.json", {
-    with: { type: "json" },
-  }).then((m) => m.default);
+  const usersData = await fs.readFile("./data/users.json", "utf-8");
+  const users = JSON.parse(usersData);
 
   const id = users.length + 1;
 

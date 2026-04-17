@@ -1,4 +1,5 @@
 import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
+import fs from "node:fs/promises";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { createUser, createTask, updateTask } from "./fn";
@@ -128,9 +129,8 @@ server.resource(
     mimeType: "application/json",
   },
   async (uri) => {
-    const users = await import("./data/users.json", {
-      with: { type: "json" },
-    }).then((m) => m.default);
+    const usersData = await fs.readFile("./data/users.json", "utf-8");
+    const users = JSON.parse(usersData);
 
     return {
       contents: [
@@ -153,9 +153,9 @@ server.resource(
     mimeType: "application/json",
   },
   async (uri, { userId }) => {
-    const users = await import("./data/users.json", {
-      with: { type: "json" },
-    }).then(m => m.default)
+    const usersData = await fs.readFile("./data/users.json", "utf-8");
+    const users = JSON.parse(usersData);
+    //@ts-ignore
     const user = users.find(u => u.id === parseInt(userId as string))
 
     if (user == null) {
@@ -195,7 +195,7 @@ server.prompt(
           role: "user",
           content: {
             type: "text",
-            text: `Generate a fake user with the name ${name}. The user should have a realistic email, address, and phone number.`,
+            text: `Generate a fake user with the name ${name}. The user should have a realistic email, and username. Return this data as a JSON object with keys "name", "username", and "email", "phone". Do not include any other text.`,
           },
         },
       ],
@@ -206,6 +206,7 @@ server.prompt(
 server.tool(
   "create-random-user",
   "Create a random user with fake data",
+  {},
   {
     title: "Create Random User",
     readOnlyHint: false,
@@ -228,7 +229,7 @@ server.tool(
             },
           ],
           maxTokens: 1024,
-          temperature : 0.7
+          temperature: 0.7
         },
       },
       CreateMessageResultSchema
