@@ -3,7 +3,7 @@
     "mcp-server": {
       "type": "stdio",
       "command": "/home/arav-menon/.bun/bin/bun",
-      "args": ["run", "server.ts"],
+      "args": ["run", "index.ts"],
       "cwd": "/home/arav-menon/100X-devs/testing-arena/mcp-testing",
       "dev": {
         "watch": ["**/*.ts"],
