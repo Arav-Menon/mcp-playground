@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "bun index.ts",
-    "server:inspect": "set DANGEROUSLY_OMIT_AUTH=true && bun x @modelcontextprotocol/inspector bun start",
-    "client:dev": "bun client.ts"
+    "server:inspect": "set DANGEROUSLY_OMIT_AUTH=true && bun x @modelcontextprotocol/inspector bun start"
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.21.1",
@@ -16,14 +15,11 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.64",
     "@inquirer/prompts": "^8.4.1",
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "@openrouter/sdk": "^0.12.13",
     "@prisma/adapter-pg": "^7.6.0",
     "@prisma/client": "^7.6.0",
     "@types/pg": "^8.20.0",
-    "ai": "^6.0.168",
     "pg": "^8.20.0",
     "prisma": "^7.6.0",
     "zod": "^4.3.6"
